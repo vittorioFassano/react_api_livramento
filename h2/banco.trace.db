@@ -1,0 +1,3 @@
+2024-06-09 21:11:49.165451-03:00 jdbc[165]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]NOME FOTO SELECT * FROM FOTO"; SQL statement:
+NOME FOTO SELECT * FROM FOTO [42000-224]

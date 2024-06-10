@@ -3,11 +3,14 @@ package org.serratec.backend.livramento.model;
 import java.time.LocalDate;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Max;
@@ -47,6 +50,10 @@ public class Postagem {
 	@Column(nullable = false, length = 30)
 	@Schema(description = "Usuário do post")
 	private String usuario;
+
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "foto_id", referencedColumnName = "id_foto")
+	private Foto foto;
 
 	@Column(name = "data_criacao")
 	private LocalDate dataCriacao;
@@ -102,6 +109,14 @@ public class Postagem {
 
 	public void setDataCriacao(LocalDate dataCriacao) {
 		this.dataCriacao = dataCriacao;
+	}
+
+	public Foto getFoto() {
+		return foto;
+	}
+
+	public void setFoto(Foto foto) {
+		this.foto = foto;
 	}
 
 }

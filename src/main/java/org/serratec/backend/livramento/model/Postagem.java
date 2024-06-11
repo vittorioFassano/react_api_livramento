@@ -35,7 +35,7 @@ public class Postagem {
 
 	@NotBlank(message = "Preencha a descrição")
 	@Size(max = 500)
-	@Column(nullable = false, length = 30)
+	@Column(nullable = false, length = 500)
 	@Schema(description = "Descrição do livro")
 	private String descricao;
 

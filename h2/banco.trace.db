@@ -196,3 +196,12 @@ Caused by: org.h2.mvstore.MVStoreException: The file is locked: G:/React/react_a
 	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
 	... 60 more
+2024-06-11 14:05:16.231331-03:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRICAO CHARACTER VARYING(500)": "U&'Eu fiquei confusa no come\\00e7o, entretanto essa autora me fez entender como ... (553)"; SQL statement:
+UPDATE "PUBLIC"."POSTAGEM" SET "ID"=? ,"DATA_CRIACAO"=? ,"DESCRICAO"=? ,"NOTA"=? ,"TITULO"=? ,"USUARIO"=? ,"FOTO_ID"=?  WHERE "ID"=? [22001-224]
+2024-06-11 14:05:16.234098-03:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRICAO CHARACTER VARYING(500)": "U&'Eu fiquei confusa no come\\00e7o, entretanto essa autora me fez entender como ... (553)"; SQL statement:
+UPDATE "PUBLIC"."POSTAGEM" SET "ID"=? ,"DATA_CRIACAO"=? ,"DESCRICAO"=? ,"NOTA"=? ,"TITULO"=? ,"USUARIO"=? ,"FOTO_ID"=?  WHERE "ID"=? [22001-224]
+2024-06-11 14:08:32.844581-03:00 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]DESCRICAO"; expected "DELETE, DROP"; SQL statement:
+DESCRICAO [42001-224]

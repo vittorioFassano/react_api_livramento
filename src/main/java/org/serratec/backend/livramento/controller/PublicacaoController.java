@@ -1,10 +1,12 @@
 package org.serratec.backend.livramento.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.serratec.backend.livramento.model.Postagem;
 import org.serratec.backend.livramento.repository.PostagemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -28,6 +30,14 @@ public class PublicacaoController {
     public ResponseEntity<List<Postagem>> listarPostagens() {
         List<Postagem> postagens = postagemRepository.findAll();
         return ResponseEntity.ok(postagens);
+    }
+    @GetMapping("{id}")
+    public ResponseEntity<Postagem> listarPostagenPorId(@PathVariable Long id) throws NotFoundException {
+       Optional<Postagem>postagemOpt = postagemRepository. findById(id);
+       if (postagemOpt.isEmpty()) {
+    	   throw new NotFoundException();
+       }
+        return ResponseEntity.ok(postagemOpt.get());
     }
 
     @PostMapping
